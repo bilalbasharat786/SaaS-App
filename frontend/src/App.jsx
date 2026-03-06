@@ -3,8 +3,6 @@ import { AuthProvider, AuthContext } from "./context/authContext";
 import { useContext } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-// Components & Pages
 import SaaSLayout from "./components/SaaSLayout";
 import Login from "./pages/Login";
 import RegisterTenant from "./pages/RegisterTenant";
@@ -12,7 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import ManageUsers from "./pages/ManageUsers";
 
-// Protected Route Wrapper
+
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useContext(AuthContext);
   if (loading) return <div className="min-h-screen flex items-center justify-center text-indigo-600 font-bold">Loading...</div>;
@@ -27,17 +25,13 @@ function App() {
       <Router>
         <ToastContainer position="top-right" autoClose={3000} theme="colored" />
         <Routes>
-          {/* Public Auth Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<RegisterTenant />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
-
-          {/* Secure Tenant Routes wrapped in SaaSLayout */}
           <Route element={<SaaSLayout />}>
-             {/* Yahan hum apni Dashboard, Projects, aur Users ki routing lagayenge */}
-             <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
-             <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
-             <Route path="/users" element={<ProtectedRoute allowedRoles={['admin']}><ManageUsers /></ProtectedRoute>} />
+            <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+            <Route path="/projects" element={<ProtectedRoute><Projects /></ProtectedRoute>} />
+            <Route path="/users" element={<ProtectedRoute allowedRoles={['admin']}><ManageUsers /></ProtectedRoute>} />
           </Route>
         </Routes>
       </Router>

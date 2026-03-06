@@ -9,7 +9,7 @@ const ManageUsers = () => {
   const { user } = useContext(AuthContext);
   const [usersList, setUsersList] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", password: "", role: "user" });
 
@@ -55,10 +55,10 @@ const ManageUsers = () => {
 
       {showForm && (
         <motion.form initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} onSubmit={handleCreate} className="bg-white p-6 rounded-3xl shadow-md border border-indigo-100 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input type="text" placeholder="Full Name" required value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
-          <input type="email" placeholder="Email Address" required value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
-          <input type="password" placeholder="Temporary Password" required minLength="6" value={formData.password} onChange={(e) => setFormData({...formData, password: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
-          <select value={formData.role} onChange={(e) => setFormData({...formData, role: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+          <input type="text" placeholder="Full Name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+          <input type="email" placeholder="Email Address" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+          <input type="password" placeholder="Temporary Password" required minLength="6" value={formData.password} onChange={(e) => setFormData({ ...formData, password: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+          <select value={formData.role} onChange={(e) => setFormData({ ...formData, role: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
             <option value="user">Normal User (View Only)</option>
             <option value="manager">Manager (Create/Edit)</option>
           </select>
@@ -72,16 +72,16 @@ const ManageUsers = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {usersList.map((u) => (
             <motion.div key={u._id} initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition flex items-center gap-4">
-               <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xl uppercase">
-                 {u.name.charAt(0)}
-               </div>
-               <div>
-                 <h3 className="font-bold text-slate-800">{u.name}</h3>
-                 <p className="text-sm text-slate-500">{u.email}</p>
-                 <span className={`inline-block mt-2 px-2 py-0.5 rounded-md text-xs font-bold uppercase ${u.role === 'admin' ? 'bg-purple-100 text-purple-700' : u.role === 'manager' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-700'}`}>
-                   {u.role}
-                 </span>
-               </div>
+              <div className="w-12 h-12 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center font-bold text-xl uppercase">
+                {u.name.charAt(0)}
+              </div>
+              <div>
+                <h3 className="font-bold text-slate-800">{u.name}</h3>
+                <p className="text-sm text-slate-500">{u.email}</p>
+                <span className={`inline-block mt-2 px-2 py-0.5 rounded-md text-xs font-bold uppercase ${u.role === 'admin' ? 'bg-purple-100 text-purple-700' : u.role === 'manager' ? 'bg-blue-100 text-blue-700' : 'bg-slate-100 text-slate-700'}`}>
+                  {u.role}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

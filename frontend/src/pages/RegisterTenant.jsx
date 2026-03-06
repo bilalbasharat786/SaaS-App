@@ -28,7 +28,7 @@ const RegisterTenant = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
         className="max-w-lg w-full bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100"
       >
@@ -37,7 +37,7 @@ const RegisterTenant = () => {
             <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">Setup Workspace</h2>
             <p className="text-slate-500 mt-2 text-sm font-medium">Create a new tenant for your company</p>
           </div>
-          
+
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label className="block text-slate-700 text-sm font-bold mb-2">Company Name</label>
@@ -56,7 +56,7 @@ const RegisterTenant = () => {
                   className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all font-medium" placeholder="John Doe" />
               </div>
             </div>
-            
+
             <div>
               <label className="block text-slate-700 text-sm font-bold mb-2">Work Email</label>
               <div className="relative">
@@ -65,7 +65,7 @@ const RegisterTenant = () => {
                   className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all font-medium" placeholder="admin@acme.com" />
               </div>
             </div>
-            
+
             <div>
               <label className="block text-slate-700 text-sm font-bold mb-2">Password</label>
               <div className="relative">
@@ -74,7 +74,7 @@ const RegisterTenant = () => {
                   className="w-full pl-12 pr-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none transition-all font-medium" placeholder="••••••••" />
               </div>
             </div>
-            
+
             <button disabled={loading} type="submit" className="w-full mt-6 flex justify-center items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 rounded-xl transition duration-300 shadow-lg shadow-indigo-200 disabled:opacity-70">
               {loading ? "Creating Workspace..." : <>Create Workspace <FiArrowRight /></>}
             </button>

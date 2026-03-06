@@ -9,8 +9,6 @@ const Projects = () => {
   const { user } = useContext(AuthContext);
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  // Naya project banane ke liye states
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({ title: "", description: "", status: "pending" });
 
@@ -43,7 +41,7 @@ const Projects = () => {
   };
 
   const handleDelete = async (id) => {
-    if(!window.confirm("Delete this project?")) return;
+    if (!window.confirm("Delete this project?")) return;
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
       await axios.delete(`${import.meta.env.VITE_API_URL}/api/projects/${id}`, config);
@@ -71,14 +69,14 @@ const Projects = () => {
       {showForm && (
         <motion.form initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: "auto" }} onSubmit={handleCreate} className="bg-white p-6 rounded-3xl shadow-md border border-indigo-100">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-            <input type="text" placeholder="Project Title" required value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
-            <select value={formData.status} onChange={(e) => setFormData({...formData, status: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
+            <input type="text" placeholder="Project Title" required value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none" />
+            <select value={formData.status} onChange={(e) => setFormData({ ...formData, status: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none">
               <option value="pending">Pending</option>
               <option value="in-progress">In Progress</option>
               <option value="completed">Completed</option>
             </select>
           </div>
-          <textarea placeholder="Description" required value={formData.description} onChange={(e) => setFormData({...formData, description: e.target.value})} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none mb-4" rows="3"></textarea>
+          <textarea placeholder="Description" required value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none mb-4" rows="3"></textarea>
           <button type="submit" className="bg-slate-900 text-white px-6 py-2.5 rounded-xl font-bold hover:bg-slate-800 transition">Save Project</button>
         </motion.form>
       )}

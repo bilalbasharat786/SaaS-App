@@ -1,8 +1,11 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const tenantSchema = new mongoose.Schema({
+const tenantSchema = new mongoose.Schema(
+  {
     name: { type: String, required: true, unique: true },
-    plan: { type: String, default: 'free' }
-}, { timestamps: true });
+    plan: { type: String, default: "free" },
+  },
+  { timestamps: true },
+);
 
-export default mongoose.model('Tenant', tenantSchema);
+export default mongoose.model("Tenant", tenantSchema);

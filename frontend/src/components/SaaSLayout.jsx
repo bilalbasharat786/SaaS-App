@@ -23,19 +23,16 @@ const SaaSLayout = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex">
-      {/* Mobile Sidebar Overlay */}
       <AnimatePresence>
         {isSidebarOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             className="fixed inset-0 bg-slate-900/50 z-40 md:hidden backdrop-blur-sm"
             onClick={() => setIsSidebarOpen(false)}
           />
         )}
       </AnimatePresence>
-
-      {/* Sidebar */}
-      <motion.aside 
+      <motion.aside
         initial={{ x: -300 }} animate={{ x: isSidebarOpen ? 0 : (window.innerWidth >= 768 ? 0 : -300) }}
         className="fixed md:sticky top-0 left-0 h-screen w-72 bg-white border-r border-slate-200 z-50 flex flex-col shadow-2xl md:shadow-none transition-transform duration-300 ease-in-out"
       >
@@ -74,8 +71,6 @@ const SaaSLayout = () => {
           </button>
         </div>
       </motion.aside>
-
-      {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0">
         <header className="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 sticky top-0 z-30">
           <button className="md:hidden text-slate-600 hover:text-indigo-600" onClick={() => setIsSidebarOpen(true)}>
@@ -86,10 +81,9 @@ const SaaSLayout = () => {
             Tenant: {user?.companyName}
           </div>
         </header>
-        
         <main className="flex-1 p-4 sm:p-8">
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}>
-            <Outlet /> {/* Yahan andar ke pages render honge */}
+            <Outlet />
           </motion.div>
         </main>
       </div>
