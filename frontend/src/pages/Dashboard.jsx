@@ -3,6 +3,7 @@ import { AuthContext } from "../context/authContext";
 import { motion } from "framer-motion";
 import { FiTrendingUp, FiUsers, FiActivity } from "react-icons/fi";
 
+
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
 

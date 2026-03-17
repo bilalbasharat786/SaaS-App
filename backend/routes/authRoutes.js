@@ -4,6 +4,7 @@ import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import Tenant from "../models/Tenant.js";
 
+
 const router = express.Router();
 
 router.post("/register-tenant", async (req, res) => {

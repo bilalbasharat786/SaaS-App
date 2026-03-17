@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { FiUserPlus, FiUsers } from "react-icons/fi";
 
+
 const ManageUsers = () => {
   const { user } = useContext(AuthContext);
   const [usersList, setUsersList] = useState([]);

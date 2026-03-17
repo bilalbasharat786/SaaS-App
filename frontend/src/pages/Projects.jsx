@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { FiPlus, FiTrash2, FiBriefcase } from "react-icons/fi";
 
+
 const Projects = () => {
   const { user } = useContext(AuthContext);
   const [projects, setProjects] = useState([]);

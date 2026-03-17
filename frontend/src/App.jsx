@@ -10,7 +10,6 @@ import Dashboard from "./pages/Dashboard";
 import Projects from "./pages/Projects";
 import ManageUsers from "./pages/ManageUsers";
 
-
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useContext(AuthContext);
   if (loading) return <div className="min-h-screen flex items-center justify-center text-indigo-600 font-bold">Loading...</div>;

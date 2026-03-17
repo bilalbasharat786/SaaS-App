@@ -4,6 +4,7 @@ import { AuthContext } from "../context/authContext";
 import { FiHome, FiUsers, FiBriefcase, FiLogOut, FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 
+
 const SaaSLayout = () => {
   const { user, logout } = useContext(AuthContext);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

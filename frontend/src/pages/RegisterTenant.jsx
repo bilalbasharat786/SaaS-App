@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { FiBriefcase, FiUser, FiMail, FiLock, FiArrowRight } from "react-icons/fi";
 
+
 const RegisterTenant = () => {
   const [formData, setFormData] = useState({ companyName: "", userName: "", email: "", password: "" });
   const [loading, setLoading] = useState(false);
